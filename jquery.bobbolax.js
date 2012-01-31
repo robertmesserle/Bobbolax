@@ -18,19 +18,19 @@
 			var max = keyframes.length;
 			if ( max < 2 ) return;
 			for ( var i = 0, index = 0; i < this.height; i++ ) {
-				if ( index + 1 < max && i > keyframes[ index + 1 ].pos ) index++;
+				if ( index + 1 < max && i > keyframes[ index + 1 ].pos ) index++;   // if the position has exceeded the current scope, jump to next keyframes
 				this.get_css( i, keyframes, index );
 			}
 		},
 		get_css: function ( pos, keyframes, index ) {
-			var cur = keyframes[ index ];                       // get previous keyframe
-			if ( pos < cur.pos ) return this.map[ pos ] = cur;  // if not reached yet, return
-			var next = keyframes[ index + 1 ];                  // get next keyframe
-			if ( !next ) return this.map[ pos ] = cur;          // if already reached, return
+			var prev = keyframes[ index ];                          // get previous keyframe
+			if ( pos < prev.pos ) return this.map[ pos ] = prev;    // if not reached yet, return
+			var next = keyframes[ index + 1 ];                      // get next keyframe
+			if ( !next ) return this.map[ pos ] = prev;             // if already reached, return
 
 			this.map[ pos ] = {};
-			for ( var prop in cur.css ) {                       // loop through all css properties being animated
-				var t = pos - cur.pos, b = cur.css[ prop ], c = next.css[ prop ] - b, d = next.pos - cur.pos;
+			for ( var prop in prev.css ) {                          // loop through all css properties being animated
+				var t = pos - prev.pos, b = prev.css[ prop ], c = next.css[ prop ] - b, d = next.pos - prev.pos;
 				this.map[ pos ][ prop ] = default_easing( null, t, b, c, d );
 			}
 		}
