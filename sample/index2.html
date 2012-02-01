@@ -1,0 +1,60 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Bobbolax Sample</title>
+	<style type="text/css">
+		body { height: 9000px; }
+		#sample1, #sample2, #sample3, #sample4 {
+			background: #0cf;
+			height: 50px;
+			width: 200px;
+			top: -60px;
+			box-shadow: 2px 2px 5px black;
+			color: white;
+			text-shadow: 1px 1px 3px rgba(0,0,0,0.25);
+			font-family: sans-serif;
+			text-align: center;
+			line-height: 50px;
+			position: fixed;
+			border-radius: 0 0 10px 10px;
+		}
+		#sample1 { left: 10px; }
+		#sample2 { left: 220px; }
+		#sample3 { left: 430px; }
+		#sample4 { left: 640px; }
+	</style>
+</head>
+<body>
+	<div id="sample1">Howdy</div>
+	<div id="sample2">Hello</div>
+	<div id="sample3">Greetings</div>
+	<div id="sample4">MOOSE!</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.bobbolax.js"></script>
+	<script type="text/javascript">
+		$('#sample1').bobbolax([
+			{ pos: 1000, css: { top: 0   } },
+			{ pos: 2000, css: { top: -60 } }
+		]);
+		$('#sample2').bobbolax([
+			{ pos: 1000, css: { top: -60 } },
+			{ pos: 2000, css: { top: 0 } },
+			{ pos: 3000, css: { top: 0 } },
+			{ pos: 4000, css: { top: -60 } }
+		]);
+		$('#sample3').bobbolax([
+			{ pos: 3000, css: { top: -60 } },
+			{ pos: 4000, css: { top: 0 } },
+			{ pos: 5000, css: { top: 0 } },
+			{ pos: 6000, css: { top: -60 } }
+		]);
+		$('#sample4').bobbolax([
+			{ pos: 5000, css: { top: -60 } },
+			{ pos: 6000, css: { top: 0 } },
+			{ pos: 7000, css: { top: 0 } },
+			{ pos: 8000, css: { top: -60 } }
+		]);
+	</script>
+</body>
+</html>
