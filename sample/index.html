@@ -1,0 +1,30 @@
+<!DOCTYPE HTML>
+<html lang="en-US">
+<head>
+	<meta charset="UTF-8">
+	<title>Bobbolax Sample</title>
+	<style type="text/css">
+		body { height: 9000px; }
+		#sample { position: fixed; top: 10; left: 10; background: red; padding: 100px; border-radius: 10px; }
+		#sample2 { position: fixed; top: 500; left: 900; background: blue; padding: 50px; border-radius: 10px; }
+	</style>
+</head>
+<body>
+	<div id="sample">Whoa!</div>
+	<div id="sample2">Wowzers!</div>
+	<script type="text/javascript" src="https://ajax.googleapis.com/ajax/libs/jquery/1.7.1/jquery.min.js"></script>
+	<script type="text/javascript" src="../jquery.bobbolax.js"></script>
+	<script type="text/javascript">
+		$('#sample').bobbolax( [
+			{ pos: 0,       css: { left: 0  , top: 10  } },
+			{ pos: 3000,    css: { left: 250, top: 500 } },
+			{ pos: 6000,    css: { left: 700, top: 200 } }
+		] );
+		$('#sample2').bobbolax( [
+			{ pos: 0,       css: { left: 900, top: 500 } },
+			{ pos: 5000,    css: { left: 100, top: 100 } },
+			{ pos: 9000,    css: { left: 300, top: 10 } }
+		] );
+	</script>
+</body>
+</html>
